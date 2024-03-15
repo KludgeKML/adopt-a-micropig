@@ -2,13 +2,19 @@
 
 <h1>Micropigs</h1>
 
-<div id="micropigs">
-  <% @micropigs.each do |micropig| %>
-    <%= render micropig %>
-    <p>
-      <%= link_to "Show this micropig", micropig %>
-    </p>
-  <% end %>
-</div>
+<table id="micropigs">
+  <thead>
+    <tr><th>Name</th><th>Age</th><th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <% @micropigs.each do |micropig| %>
+      <tr>
+        <td><%= micropig.name %></td>
+        <td><%= micropig.age %></td>
+        <td><%= link_to "view", micropig %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New micropig", new_micropig_path %>
