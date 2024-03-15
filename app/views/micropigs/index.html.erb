@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Micropigs</h1>
+
+<div id="micropigs">
+  <% @micropigs.each do |micropig| %>
+    <%= render micropig %>
+    <p>
+      <%= link_to "Show this micropig", micropig %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New micropig", new_micropig_path %>

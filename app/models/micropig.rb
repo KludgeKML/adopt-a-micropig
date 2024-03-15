@@ -1,0 +1,2 @@
+class Micropig < ApplicationRecord
+end

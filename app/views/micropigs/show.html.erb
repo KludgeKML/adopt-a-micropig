@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @micropig %>
+
+<div>
+  <%= link_to "Edit this micropig", edit_micropig_path(@micropig) %> |
+  <%= link_to "Back to micropigs", micropigs_path %>
+
+  <%= button_to "Destroy this micropig", @micropig, method: :delete %>
+</div>
