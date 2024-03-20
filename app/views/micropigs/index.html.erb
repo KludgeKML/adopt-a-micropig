@@ -1,20 +1,30 @@
+<%= render "govuk_publishing_components/components/layout_header", {
+  environment: "Development"
+} %>
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Micropigs</h1>
+<div class="govuk-width-container">
 
-<table id="micropigs">
-  <thead>
-    <tr><th>Name</th><th>Age</th><th>&nbsp;</th>
-  </thead>
-  <tbody>
-    <% @micropigs.each do |micropig| %>
-      <tr>
-        <td><%= micropig.name %></td>
-        <td><%= micropig.age %></td>
-        <td><%= link_to "view", micropig %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render "govuk_publishing_components/components/heading", {
+  text: "Micropigs"
+} %>
 
-<%= link_to "New micropig", new_micropig_path %>
+<%= render "govuk_publishing_components/components/table", {
+  head: [ { text: "Name" }, { text: "Age", format: "numeric" }, { text: "" }],
+  rows: @micropigs.map { |micropig|
+    [
+      { text: micropig.name },
+      { text: micropig.age, format: "numeric" },
+      { text: link_to("view", micropig) },
+    ]
+  },
+} %>
+
+<%= render "govuk_publishing_components/components/button", {
+  text: "New micropig",
+  href: new_micropig_path
+} %>
+
+</div>
+

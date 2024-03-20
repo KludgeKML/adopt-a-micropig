@@ -3,7 +3,11 @@ class MicropigsController < ApplicationController
 
   # GET /micropigs or /micropigs.json
   def index
-    @micropigs = Micropig.all
+    @micropigs = if params.key?(:age)
+                    Micropig.where(age: params[:age])
+                 else
+                    Micropig.all
+                 end
   end
 
   # GET /micropigs/1 or /micropigs/1.json
